@@ -15,7 +15,7 @@ from timm.layers import set_layer_config
 from timm.models._factory import parse_model_name
 from timm.models._helpers import load_state_dict
 from timm.models._hub import load_model_config_from_hf
-from timm.models._pretrained import PretrainedCfg, split_model_name_tag
+from timm.models._pretrained import PretrainedCfg
 from timm.models._registry import is_model, model_entrypoint
 
 
@@ -83,11 +83,11 @@ def create_model(
         # For model names specified in the form `hf-hub:path/architecture_name@revision`,
         # load model weights + pretrained_cfg from Hugging Face hub.
         pretrained_cfg, model_name = load_model_config_from_hf(model_name)
-    else:
-        model_name, pretrained_tag = split_model_name_tag(model_name)
-        if not pretrained_cfg:
-            # a valid pretrained_cfg argument takes priority over tag in model name
-            pretrained_cfg = pretrained_tag
+    # else:
+    #     model_name, pretrained_tag = split_model_name_tag(model_name)
+    #     if not pretrained_cfg:
+    #         # a valid pretrained_cfg argument takes priority over tag in model name
+    #         pretrained_cfg = pretrained_tag
 
     if not is_model(model_name):
         raise RuntimeError("Unknown model (%s)" % model_name)
