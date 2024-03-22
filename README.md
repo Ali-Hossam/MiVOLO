@@ -1,11 +1,3 @@
-<div align="center">
-<p>
-   <a align="center" target="_blank">
-   <img width="900" src="./images/MiVOLO.jpg"></a>
-</p>
-<br>
-</div>
-
 
 
 ## MiVOLO: Multi-input Transformer for Age and Gender Estimation
